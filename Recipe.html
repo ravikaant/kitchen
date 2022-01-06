@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Recipe</title>
+    <script src="Recipe.js"></script>
+</head>
+
+<body onload="loadContents()" style="background-size: 100% 100%; min-width: 100vw; min-height: 100vw;">
+
+    <style>
+        #header {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .step {
+            display: flex;
+            border: 2px solid red;
+            border-radius: 10px;
+            margin-bottom: 2%;
+            transition: transform .2s;
+            background-color: rgb(107, 68, 247);
+            opacity: 1;
+            width: 60%;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+    </style>
+
+
+
+    <div id="RecipeHeader">
+
+    </div>
+    <div id="recipeList"
+        style="display: flex; flex-direction: column; overflow: scroll; align-content: center; align-items: center;">
+
+        <div id="currentStep" class="step"></div>
+        <button id="starttimer">Start Current Step</button>
+        <h4 id="nextStepIndicator">Next Step</h4>
+        <div id='nextStep' class="step"></div>
+
+
+    </div>
+
+
+</body>
+
+</html>

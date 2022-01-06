@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="Home_Page.css">
+</head>
+
+<body style="margin-top: 0; margin-bottom: 0;">
+
+    <script src="Home_Page.js"></script>
+
+    <div id="homeContainer">
+
+        <div id="headContainer">
+            <div id="header">
+                <a class="nav" id="publicRecipes" onclick="loadRecipes()">Public Recipes</a>
+                <!-- <a class="nav" id='customRecipeHeader'>Custom Recipes</a> -->
+                <!-- <a class="nav">Blogs</a> -->
+                <a class="nav" id='myRecipeHeader'>My Recipes</a>
+                <img onclick="showOptions()" class="userImg" src="goodfood.jpeg">
+            </div>
+
+            <div id='userOptions'>
+                <button onclick="showAddForm()" class="op">Add New Recipe</button>
+                <button class="op" onclick="LogOut()">Log Out</button>
+                <button class="op" onclick="hideOptions()" style="margin-bottom: 0px; width: 10%;">X</button>
+            </div>
+
+            <div id="addForm">
+                <h2 style="color:rgb(107, 68, 247);"> Add Your Recipe</h2>
+                <div style="width: 100%; height: 50%; align-items: center; display: flex; flex-direction: column; ">
+                    <div
+                        style="width: 100%;  align-items: center; display: flex; flex-direction: row; justify-content: space-evenly; ">
+                        <h4 style="color: rgb(107, 68, 247);">Name of The Recipe</h4>
+                        <input id="name" type="text"
+                            style="width: 60%; height: 4vh; border: 0.5px solid rgb(107, 68, 247); border-radius: 10px;">
+                    </div>
+
+                    <div style="display: flex; flex-direction: row; justify-content: space-evenly;
+                        align-content: center; align-items: center; height: 20px; ">
+                        <p style="display: block; color: rgb(107, 68, 247); margin: 5px;">Breakfast</p>
+                        <input id="breakfast" type="checkbox"
+                            style="margin: 5px; border: 0.5px solid rgb(107, 68, 247); border-radius: 10px;">
+                        <p style="display: block; color: rgb(107, 68, 247); margin: 5px;">Veg</p>
+                        <input id="veg" type="checkbox"
+                            style="margin: 5px; border: 0.5px solid rgb(107, 68, 247); border-radius: 10px;">
+                        <p style="display: block; color: rgb(107, 68, 247); margin: 5px;">Private</p>
+                        <input id="private" type="checkbox"
+                            style="margin: 5px; border: 0.5px solid rgb(107, 68, 247); border-radius: 10px;">
+                    </div>
+                </div>
+
+                <h4 id="stepContainer" style="color: rgb(107, 68, 247);">Step 1</h4>
+                <hr style="border-top: 1px solid rgb(107, 68, 247); width: 100%;">
+
+                <div style="width: 100%; min-height: 90%; align-items: center; display: flex; flex-direction: column; ">
+                    <h4 id="ingredientContainer" style="color: rgb(107, 68, 247);">Ingredient 1</h4>
+
+                    <div
+                        style="display: flex; flex-direction: row; color: rgb(107, 68, 247); justify-content: space-between; align-items: center;">
+                        <h4 style="color: rgb(107, 68, 247); height: 4vh; text-align: start; vertical-align: top;">
+                            Ingredient</h4>
+                        <input id="ingredients" type="text"
+                            style="width: 60%; height: 4vh; border-radius: 10px; border: 0.5px solid rgb(107, 68, 247);">
+                    </div>
+                    <div
+                        style="display: flex; flex-direction: row; color: rgb(107, 68, 247); justify-content: space-between; align-items: center;">
+                        <h4 style="color: rgb(107, 68, 247); height: 4vh; text-align: start; vertical-align: top;">
+                            Quantity</h4>
+                        <input id="quantity" type="text"
+                            style="width: 60%; height: 4vh; border-radius: 10px; border: 0.5px solid rgb(107, 68, 247);">
+                    </div>
+                    <div
+                        style="display: flex; flex-direction: row; color: rgb(107, 68, 247); justify-content: space-evenly; align-items: center;">
+                        <h4 style="color: rgb(107, 68, 247); height: 4vh; text-align: start; vertical-align: super;">
+                            Unit</h4>
+                        <input id="unit" type="text"
+                            style="width: 60%; height: 4vh; border-radius: 10px; border: 0.5px solid rgb(107, 68, 247);">
+                    </div>
+
+                    <button
+                        style="margin: 8px; text-align: center; background-color: rgb(107, 68, 247); color: white;border-radius: 10px;"
+                        onclick="addIngredient()">Add Ingredient
+                    </button>
+                    <hr style="border-top: 1px solid rgb(107, 68, 247); width: 85%;">
+
+                </div>
+
+                <div style="width: 100%; height: 60%; align-items: center; display: flex; flex-direction: column;">
+                    <div
+                        style="width: 100%; height: 60%; align-items: center; display: flex; flex-direction: row; justify-content: space-evenly;">
+                        <h4 style="color: rgb(107, 68, 247); border-radius: 10px;">Instructions</h4>
+                        <textarea id="instructions"
+                            style="width: 80%; height: 80%; border-radius: 10px; border: 0.5px solid rgb(107, 68, 247);"
+                            name="Text1" cols="40" rows="5"></textarea>
+                    </div>
+
+                    <div
+                        style="width: 100%; height: 60%;  align-items: center; display: flex; flex-direction: row; justify-content: space-evenly;">
+                        <h4 style="color: rgb(107, 68, 247); border-radius: 10px;">Time Stamp</h4>
+
+                        <h6 style="color: rgb(107, 68, 247);;">Hours</h6>
+                        <input id="hours" type="number" style="width: 4%; height: 40%;">
+
+                        <h6 style="color: rgb(107, 68, 247);;">Minutes</h6>
+                        <input id="minutes" type="number" style="width: 4%; height: 40%;">
+
+                        <h6 style="color: rgb(107, 68, 247);;">Seconds</h6>
+                        <input id="seconds" type="number" style="width: 4%; height: 40%;">
+                    </div>
+                </div>
+                <div
+                    style="width: 100%; height: 60%; align-items: center; display: flex; flex-direction: row; justify-content: space-evenly; border-radius: 10px; margin-bottom: 4px;">
+                    <button
+                        style="text-align: center; background-color: rgb(107, 68, 247); color: white;border-radius: 10px;"
+                        onclick="cancelAddition()">Cancel</button>
+                    <button
+                        style="text-align: center; background-color: rgb(107, 68, 247); color: white;border-radius: 10px;"
+                        onclick="addStep()">Add Step</button>
+                    <button
+                        style="text-align: center; background-color: rgb(107, 68, 247); color: white;border-radius: 10px;"
+                        onclick="submitRecipe()">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchDiv">
+        <input type="text" id="searchBox" placeholder="Search Recipes">
+        <button onclick='searchTag()'>Search</button>
+    </div>
+
+    <div id="recipeDiv">
+        <div id="VegFilter">
+            <div>
+                <input id="vegChecker" type="checkbox">
+                <h4 style="color: white; display: inline;">Veg</h4>
+                <br>
+                <br>
+                <input id="nonVegChecker" type="checkbox">
+                <h4 style="color: white; display: inline;">Non-Veg</h4>
+            </div>
+
+        </div>
+
+        <div id="PublicFilter">
+            <div>
+                <input id="publicChecker" type="checkbox">
+                <h4 style="color: white; display: inline;">Public</h4>
+                <br>
+                <br>
+                <input id="privateChecker" type="checkbox">
+                <h4 style="color: white; display: inline;">Private</h4>
+            </div>
+
+        </div>
+        <div id="recipeList" style="display: grid;  max-height: 90vh; width: 80vw; grid-gap: 20px; grid">
+
+            <div id='recipe 1' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+
+            </div>
+            <div id='recipe 2' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 3' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 4' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 5' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 6' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 7' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 8' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">;</img>
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 9' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 10' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 11' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 12' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 13' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 14' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 15' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+            <div id='recipe 16' class="recipe" style="margin: 2vw;" onclick="window.open('recipe.html')">
+                <img class='thumb' src="goodfood.jpeg">
+                <p class="RecipeName">Salty Water </p>
+                <p class="RecipeCat">Veg</p>
+                <img class="like"
+                    onclick="event.stopPropagation();console.log((1-parseInt(src[src.length-6]))+'.jpeg');src=(1-parseInt(src[src.length-6]))+'.jpeg'"
+                    src="0.jpeg">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

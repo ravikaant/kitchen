@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sign In Page</title>
+</head>
+
+<body>
+    <script src="SignIn.js"></script>
+
+    <div
+        style="display: flex; justify-content: center; background-color: white; background-size: 100% 100%; width: 100vw; height: 100vh; margin-top: 0px; margin-bottom: 0px;
+        flex-direction: column; align-items: center;">
+
+        <div id="formContainer"
+            style="border-radius: 20px; width: 40%; height: 60%; opacity: 0.7; margin: 20px; border: 2px solid red;justify-content: center; display: flex; background-color: white; flex-direction: column; align-items: center; align-content: center;">
+
+            <form
+                style="margin: 20px; display: flex; flex-direction: column; justify-content: center; width: 50%; align-items: center;">
+
+                <p><b>User Name* :</b></p><input id="uid" 
+                    style="text-align: center; border-radius: 8px; width: 70%;      max-width: 300px; height: 25px; font-size: 20px;"
+                    type="text" placeholder="User Name"><br>
+
+                <p><b>Password* :</b></p><input id="pass" type="password"
+                    style="text-align: center; border-radius: 8px; width: 70%; max-width: 300px; height: 25px; font-size: 20px;">
+
+            </form>
+
+            <p id="uidStatus" style="display: none;"></p>
+
+            <button id="signinbt" onclick="signIn()" style="margin-top: 5%;font-size: 20px; border-radius: 10px; ">Log In</button>
+
+        </div>
+
+        
+
+        <p> Don't Have An Account? <a href="SignUp.html">Sign Up </a> Here</p>
+    </div>
+</body>
+
+</html>
